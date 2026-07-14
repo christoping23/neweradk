@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Loa Castle — Extreme Action MMORPG</title>
+<link href="images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="images/favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Top Navigation -->
+<header class="site-header">
+<div class="header-inner">
+<a class="header-brand" href="#">LOA <span class="title-accent">CASTLE</span></a>
+<nav class="nav">
+<ul class="nav-links">
+<li><a href="#classes">Register</a></li>
+<li><a href="https://discord.gg/ZmKzASVcxN" rel="noopener noreferrer" target="_blank">Discord</a></li>
+<li><a href="https://www.xtremetop100.com/in.php?site=1132378375" rel="noopener noreferrer" target="_blank">Vote</a></li>
+<li><a href="#classes">Classes</a></li>
+<li><a href="#rates">Rates</a></li>
+<li><a href="#timers">Events</a></li>
+<li><a href="#ranking">Ranking</a></li>
+<li><a class="nav-link-highlight" href="#donate">Donate</a></li>
+</ul>
+<div class="nav-status-group">
+<div class="server-status">
+<span class="status-indicator"></span>
+<span class="status-text">
+<span class="status-label">Online</span>
+<span class="status-count" id="playersOnline">--</span>
+</span>
+</div>
+</div>
+<button aria-label="Toggle navigation" class="nav-toggle">
+<span></span><span></span><span></span>
+</button>
+</nav>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="hero">
+<div class="container hero-inner">
+<div class="hero-content" data-animate="fade-up">
+<div class="hero-badge">
+<span class="badge-icon">⚔</span>
+<span><h3>Dekaron — Tower of Spell</h3></span>
+</div>
+<h1 class="hero-title">
+<span class="title-line">Extreme</span>
+<span class="title-line title-accent">Action MMORPG</span>
+</h1>
+<p class="hero-description">
+Old-school, fast-paced combat with brutal PvP, explosive skills, and classic dungeon grinds. Experience a balanced private server built for true warriors.
+</p>
+<div class="hero-actions">
+<a class="btn btn-download" href="https://drive.google.com/file/d/1bnZHGRDQMKsmbgXQz4f0By8zqR6iMC-i/view?usp=sharing" rel="noopener noreferrer" target="_blank">
+<span class="btn-text">Download</span>
+<span class="btn-icon">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="7 10 12 15 17 10"></polyline>
+<line x1="12" x2="12" y1="15" y2="3"></line>
+</svg>
+</span>
+</a>
+<a class="btn btn-dark" href="#classes">
+<span class="btn-text">Explore Classes</span>
+<span class="btn-icon">→</span>
+</a>
+</div>
+</div>
+<div class="hero-stats" data-animate="fade-left">
+<div class="stats-card">
+<div class="stats-header">
+<span class="stats-icon">◆</span>
+<span>Server Overview</span>
+</div>
+<div class="stats-body">
+<div class="stat-item">
+<span class="stat-label">Classes Available</span>
+<span class="stat-value">15</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Experience Rate</span>
+<span class="stat-value">×1</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Drop Rate</span>
+<span class="stat-value">×1</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Dils Rate</span>
+<span class="stat-value">×1</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- Class Introduction Section -->
+<section class="section section-classes" id="classes">
+<div class="container">
+<header class="section-header" data-animate="fade-up">
+<span class="section-tag">01</span>
+<div>
+<h2 class="section-title">Class Introduction</h2>
+<p class="section-subtitle">Meet the core Loa Castle classes and their distinct roles in party play and PvP</p>
+</div>
+</header>
+<div class="class-showcase">
+<div class="class-nav">
+<button aria-label="Previous class" class="class-nav-btn prev">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<polyline points="15 18 9 12 15 6"></polyline>
+</svg>
+</button>
+<div class="class-indicators" id="classIndicators"></div>
+<button aria-label="Next class" class="class-nav-btn next">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</button>
+</div>
+<div class="slider-viewport">
+<div class="slider-track" id="classSliderTrack">
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Azure Knight" class="class-image" src="images/Azure Knight.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Azure Knight</h3>
+<span class="class-role">Melee | Sword, Mace, Axe, Shield</span>
+</div>
+<p class="class-description">Versatile melee frontliner who can tank or deal heavy physical damage using greatswords, dual weapons, or sword-and-shield setups.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>Azure Knights are the descendants of Undo Masochie that once filled Genoa, the Land of Destruction, with the rays of light reflected on their swords as they slashed away at their enemies. They have abandoned magic, archery, and everything else to hone their swordsmanship to their fullest potential.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 80%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 20%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 70%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 30%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Segita Hunter" class="class-image" src="images/Segita Hunter.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Segita Hunter</h3>
+<span class="class-role">Ranged | Bow, Crossbow, Dagger</span>
+</div>
+<p class="class-description">Long-range damage dealer specializing in bows, crossbows, and daggers, using mobility and debuffs to control fights from a distance.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>Segita Hunters are the first ones that succeeded in establishing trade and commerce with the people of Helicita. These children of Qune, the goddess of beauty, are skilled tacticians and archers; loyal soldiers as long as they are not given commands that violate their ethics.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 70%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 20%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 30%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 20%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Incar Magician" class="class-image" src="images/Incar Magician.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Incar Magician</h3>
+<span class="class-role">Magic | Wand, Staff</span>
+</div>
+<p class="class-description">Elemental caster with powerful fire, ice, and lightning spells, excelling at wide-area damage and crowd control in parties.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>These priestesses of Incar, also known as Zodiac, are passionately driven to acquire knowledge about magic and the world's truths. They can create magic spells by using only the Force Elemental, strictly focusing on elemental magic while despising black magic.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 20%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 90%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 20%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 30%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Vicious Summoner" class="class-image" src="images/Vicious Summoner.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Vicious Summoner</h3>
+<span class="class-role">Melee, Range | Twin Blade, Staff</span>
+</div>
+<p class="class-description">Hybrid fighter who commands summoned creatures while using twin blades and debuffs for aggressive, hit-and-run combat.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>The summoners have existed since the age of the Alokens, long before the Incar Order was established. Their ability to summon creatures is mysterious, and despite suppression, this type of black magic is attracting more practitioners, even after the disastrous Grand Fall.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 60%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 70%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 40%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 40%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Segnale" class="class-image" src="images/Segnale.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Segnale</h3>
+<span class="class-role">Range | Blood Whip</span>
+</div>
+<p class="class-description">Primary support class that heals, resurrects, and curses enemies, making it essential in dungeon runs and group PvP.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>Segnale are still connected to the Abyss, yet they have one foot in the human realms. They have mastered the art of the Blood Whip, and their healing abilities are praised by the wounded and the dead. Their fighting abilities cause great devastation among enemies.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 20%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 60%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 30%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 100%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Bagi Warrior" class="class-image" src="images/Bagi Warrior.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Bagi Warrior</h3>
+<span class="class-role">Melee | Gauntlet</span>
+</div>
+<p class="class-description">Durable berserker with high defense and magic resistance, using heavy-hitting close-range skills to disrupt enemy lines.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>The Grand Fall exposed the Bagi Warriors to otherworldly contamination, granting their bodies inhumane strength and imbuing them with the parasitic Spirit of Karon. They control this spirit to unleash special abilities and maximize their physical capabilities.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 90%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 10%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 90%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 10%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Aloken" class="class-image" src="images/Aloken.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Aloken</h3>
+<span class="class-role">Melee | Spear, Guardarm</span>
+</div>
+<p class="class-description">Spear-wielding hybrid that delivers steady melee damage while boosting allies with powerful buffs and defensive support spells.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>Alokens have remained on the land, unlike their kin who deserted Trieste. After the Grand Fall, they settled in the Jungle of Eternity and blamed their pride for the disaster brought upon the land. They wished for peace until Karon destroyed the jungle.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 60%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 40%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 60%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 70%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Dragon Knight" class="class-image" src="images/Dragon Knight.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Dragon Knight</h3>
+<span class="class-role">Melee | Sword, Seal Force</span>
+</div>
+<p class="class-description">Heavily armored berserker who channels draconic rage into relentless single-target damage while shrugging off punishment and buffing allies through short, powerful auras.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>Dragon Knights fully embrace the chaotic fury of dragons rather than resist it, using that inherited rage to crush enemies while their heavy armor and defensive skills keep them standing at the front line.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 85%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 15%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 80%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 50%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Segita Shooter" class="class-image" src="images/Segita Shooter.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Segita Shooter</h3>
+<span class="class-role">Ranged | Pierce Weapons</span>
+</div>
+<p class="class-description">Ranged specialist who unleashes wide-area fire-infused barrages, favoring aggressive self-buffs and burst damage over defense.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>A newer branch of the Segita bloodline, Shooters trade some of the Hunter's mobility for raw offensive output, saturating whole areas with elemental firepower rather than picking off single targets.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 80%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 30%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 25%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 30%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Black Wizard" class="class-image" src="images/Black Wizard.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Black Wizard</h3>
+<span class="class-role">Magic | Orb</span>
+</div>
+<p class="class-description">Forbidden-magic caster who abandons elemental spellwork for raw, wide-reaching dark energy blasts, trading survivability for devastating burst damage against groups.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>Black Wizards broke away from the traditional schools of Incar magic to master the Dark, an unrestrained current of power the order forbids. Orbs drift around them as a mark of this forbidden mastery, letting them unleash corrupting spells the Incar order would rather see left alone.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 10%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 90%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 20%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 30%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Conserra Summoner" class="class-image" src="images/Conserra Summoner.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Conserra Summoner</h3>
+<span class="class-role">Melee, Magic | Dual Blade, Staff</span>
+</div>
+<p class="class-description">Elusive assassin-summoner who slips into invisibility for burst dual-blade strikes, or channels a staff for poison and supportive Chakra magic, calling spirit allies in either stance.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>Bound by pact to primal spirits, Conserra Summoners are considered among Trieste's finest killers. They favor a hit-and-vanish rhythm over sustained combat, striking hard before their target can retaliate.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 65%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 55%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 35%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 50%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Seguriper" class="class-image" src="images/Seguriper.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Seguriper</h3>
+<span class="class-role">Melee, Magic | Scythe</span>
+</div>
+<p class="class-description">Battlefield controller who wears enemies down with a dense kit of curses and debuffs before finishing them off with balanced physical and magical scythe strikes.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>The male counterpart to the Segnale, Seguriper trade a pure healing focus for punishment. Where Segnale sustain their allies, Seguriper sustain themselves, weaving self-recovery between waves of affliction meant to cripple anyone foolish enough to approach.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 55%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 55%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 55%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 65%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Half Bagi" class="class-image" src="images/Half Bagi.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Half Bagi</h3>
+<span class="class-role">Melee | Falchion, Katar</span>
+</div>
+<p class="class-description">Hybrid melee fighter blending human focus with inherited Bagi rage, switching between wide sweeping falchion attacks and rapid single-target katar strikes.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>Born from forbidden unions between humans and Bagi, Half Bagi carry a lighter share of Karon's curse than their kin. Their steadier minds let them channel this power deliberately, building and unleashing Fury only through the heat of battle rather than escalating it endlessly like full-blooded Bagi.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 85%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 10%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 65%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 15%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Alokes" class="class-image" src="images/Alokes.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Alokes</h3>
+<span class="class-role">Melee, Ranged | Rapier, Sword</span>
+</div>
+<p class="class-description">Dual-style duelist who pivots between fast melee rapier combos and ranged sword techniques, adapting mid-fight to whichever range favors them.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>One of Trieste's newest fighters, Alokes are still being shaped by the gods of war. Their two disciplines, Speva and Reva, give them a flexibility few other classes share, at the cost of still finding their place among veteran warriors.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 60%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 35%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 45%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 40%"></div></div></div>
+</div>
+</div>
+</article>
+
+<article class="class-slide">
+<div class="class-visual">
+<div class="class-image-frame">
+<img alt="Trie Muse" class="class-image" src="images/Trie Muse.png"/>
+<div class="class-image-glow"></div>
+</div>
+</div>
+<div class="class-info">
+<div class="class-header">
+<h3 class="class-name">Trie Muse</h3>
+<span class="class-role">Magic | Control</span>
+</div>
+<p class="class-description">Battlefield-control mage who locks enemies down with immobilizes, stuns, and slows, while weaving in damage and speed buffs for allies.</p>
+<div class="class-lore">
+<h4>Class Background</h4>
+<p>Trie Muse care little for raw destruction, preferring to strip enemies of the ability to fight back at all. A well-placed Muse can turn a losing battle into a rout without landing a single decisive blow.</p>
+</div>
+<div class="class-stats">
+<div class="stat-bar-item"><span class="stat-name">Physical</span><div class="stat-bar-track"><div class="stat-bar-fill physical" style="--fill: 15%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Magic</span><div class="stat-bar-track"><div class="stat-bar-fill magic" style="--fill: 75%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Defense</span><div class="stat-bar-track"><div class="stat-bar-fill defense" style="--fill: 30%"></div></div></div>
+<div class="stat-bar-item"><span class="stat-name">Support</span><div class="stat-bar-track"><div class="stat-bar-fill support" style="--fill: 65%"></div></div></div>
+</div>
+</div>
+</article>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Server Rates Section -->
+<section class="section section-rates" id="rates">
+<div class="container">
+<header class="section-header" data-animate="fade-up">
+<span class="section-tag">02</span>
+<div>
+<h2 class="section-title">Server Rates</h2>
+<p class="section-subtitle">Balanced rates tuned for classic grinding with boosted progression</p>
+</div>
+</header>
+<div class="rates-grid">
+<div class="rate-card" data-animate="fade-up" data-delay="100">
+<div class="rate-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div>
+<span class="rate-label">Experience</span>
+<span class="rate-value">×2</span>
+<p class="rate-description">Level up faster while keeping the classic grind experience alive.</p>
+</div>
+<div class="rate-card" data-animate="fade-up" data-delay="200">
+<div class="rate-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+<span class="rate-label">Drop Rate</span>
+<span class="rate-value">×2</span>
+<p class="rate-description">Double the chance of valuable drops from monsters everywhere.</p>
+</div>
+<div class="rate-card" data-animate="fade-up" data-delay="300">
+<div class="rate-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+<span class="rate-label">Dils Rate</span>
+<span class="rate-value">×2</span>
+<p class="rate-description">Earn Grade Points faster to boost your rank and character stats.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Event Timers Section -->
+<section class="section section-events" id="timers">
+<div class="container">
+<header class="section-header" data-animate="fade-up">
+<span class="section-tag">03</span>
+<div>
+<h2 class="section-title">Upcoming Events</h2>
+<p class="section-subtitle">Events occur daily at scheduled times (GMT+8)</p>
+</div>
+</header>
+<div class="events-grid">
+<div class="event-card" data-animate="fade-up" data-delay="100">
+<div class="event-icon"><span>⚔</span></div>
+<h4 class="event-name">Deadfront</h4>
+<div class="event-timer" id="deadfrontCardTimer">00:00:00</div>
+<div class="event-schedule"><span>04:00</span><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span><span>24:00</span></div>
+</div>
+<div class="event-card" data-animate="fade-up" data-delay="150">
+<div class="event-icon"><span>⚔</span></div>
+<h4 class="event-name">Party Match</h4>
+<div class="event-timer" id="partyCardTimer">00:00:00</div>
+<div class="event-schedule"><span>02:00</span><span>06:00</span><span>10:00</span><span>14:00</span><span>18:00</span><span>22:00</span></div>
+</div>
+<div class="event-card" data-animate="fade-up" data-delay="200">
+<div class="event-icon"><span>⚔</span></div>
+<h4 class="event-name">Battle Royal</h4>
+<div class="event-timer" id="battleCardTimer">00:00:00</div>
+<div class="event-schedule"><span>03:00</span><span>07:00</span><span>11:00</span><span>15:00</span><span>19:00</span><span>23:00</span></div>
+</div>
+<div class="event-card" data-animate="fade-up" data-delay="250">
+<div class="event-icon"><span>⚔</span></div>
+<h4 class="event-name">Deadland</h4>
+<div class="event-timer" id="deadlandCardTimer">00:00:00</div>
+<div class="event-schedule"><span>07:05</span><span>14:05</span><span>23:05</span></div>
+</div>
+<div class="event-card" data-animate="fade-up" data-delay="300">
+<div class="event-icon"><span>⚔</span></div>
+<h4 class="event-name">Ruby Eye</h4>
+<div class="event-timer" id="rubyEyeCardTimer">00:00:00</div>
+<div class="event-schedule"><span>07:05</span><span>14:05</span><span>23:05</span></div>
+</div>
+<div class="event-card" data-animate="fade-up" data-delay="350">
+<div class="event-icon"><span>⚔</span></div>
+<h4 class="event-name">Elonohm</h4>
+<div class="event-timer" id="elonohmCardTimer">00:00:00</div>
+<div class="event-schedule"><span>07:05</span><span>14:05</span><span>23:05</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Ranking Section -->
+<section class="section section-ranking" id="ranking">
+<div class="container">
+<header class="section-header" data-animate="fade-up">
+<span class="section-tag">04</span>
+<div>
+<h2 class="section-title">Server Rankings</h2>
+<p class="section-subtitle">Top 10 warriors across level, PK kills, and DK Square wins — sample data, updates live once connected to your server API</p>
+</div>
+</header>
+<div class="ranking-grid">
+
+<div class="ranking-card" data-animate="fade-up" data-delay="100">
+<div class="ranking-header">
+<span class="ranking-icon">◆</span>
+<h3>Top 10 Level</h3>
+</div>
+<ol class="ranking-list">
+<li><span class="rank-pos">01</span><span class="rank-name">Ashkalon</span><span class="rank-value">Lv 245</span></li>
+<li><span class="rank-pos">02</span><span class="rank-name">Nyxara</span><span class="rank-value">Lv 244</span></li>
+<li><span class="rank-pos">03</span><span class="rank-name">Kaidren</span><span class="rank-value">Lv 243</span></li>
+<li><span class="rank-pos">04</span><span class="rank-name">Vorhak</span><span class="rank-value">Lv 241</span></li>
+<li><span class="rank-pos">05</span><span class="rank-name">Selwyn</span><span class="rank-value">Lv 240</span></li>
+<li><span class="rank-pos">06</span><span class="rank-name">Draveth</span><span class="rank-value">Lv 238</span></li>
+<li><span class="rank-pos">07</span><span class="rank-name">Isolde</span><span class="rank-value">Lv 236</span></li>
+<li><span class="rank-pos">08</span><span class="rank-name">Marrek</span><span class="rank-value">Lv 235</span></li>
+<li><span class="rank-pos">09</span><span class="rank-name">Thessaly</span><span class="rank-value">Lv 233</span></li>
+<li><span class="rank-pos">10</span><span class="rank-name">Gorrim</span><span class="rank-value">Lv 231</span></li>
+</ol>
+</div>
+
+<div class="ranking-card" data-animate="fade-up" data-delay="200">
+<div class="ranking-header">
+<span class="ranking-icon">◆</span>
+<h3>Top 10 Max PK</h3>
+</div>
+<ol class="ranking-list">
+<li><span class="rank-pos">01</span><span class="rank-name">Reyven</span><span class="rank-value">3,214 PK</span></li>
+<li><span class="rank-pos">02</span><span class="rank-name">Ilsara</span><span class="rank-value">2,987 PK</span></li>
+<li><span class="rank-pos">03</span><span class="rank-name">Doraxis</span><span class="rank-value">2,850 PK</span></li>
+<li><span class="rank-pos">04</span><span class="rank-name">Fennric</span><span class="rank-value">2,712 PK</span></li>
+<li><span class="rank-pos">05</span><span class="rank-name">Callindra</span><span class="rank-value">2,605 PK</span></li>
+<li><span class="rank-pos">06</span><span class="rank-name">Brennos</span><span class="rank-value">2,498 PK</span></li>
+<li><span class="rank-pos">07</span><span class="rank-name">Zarielle</span><span class="rank-value">2,340 PK</span></li>
+<li><span class="rank-pos">08</span><span class="rank-name">Tormund</span><span class="rank-value">2,215 PK</span></li>
+<li><span class="rank-pos">09</span><span class="rank-name">Aveline</span><span class="rank-value">2,102 PK</span></li>
+<li><span class="rank-pos">10</span><span class="rank-name">Korrath</span><span class="rank-value">1,988 PK</span></li>
+</ol>
+</div>
+
+<div class="ranking-card" data-animate="fade-up" data-delay="300">
+<div class="ranking-header">
+<span class="ranking-icon">◆</span>
+<h3>Top 10 DK Square</h3>
+</div>
+<ol class="ranking-list">
+<li><span class="rank-pos">01</span><span class="rank-name">Wraithborn</span><span class="rank-value">412 Wins</span></li>
+<li><span class="rank-pos">02</span><span class="rank-name">Skarvos</span><span class="rank-value">398 Wins</span></li>
+<li><span class="rank-pos">03</span><span class="rank-name">Nireth</span><span class="rank-value">376 Wins</span></li>
+<li><span class="rank-pos">04</span><span class="rank-name">Halmund</span><span class="rank-value">351 Wins</span></li>
+<li><span class="rank-pos">05</span><span class="rank-name">Ysolwen</span><span class="rank-value">334 Wins</span></li>
+<li><span class="rank-pos">06</span><span class="rank-name">Corvael</span><span class="rank-value">312 Wins</span></li>
+<li><span class="rank-pos">07</span><span class="rank-name">Bastienne</span><span class="rank-value">297 Wins</span></li>
+<li><span class="rank-pos">08</span><span class="rank-name">Drennik</span><span class="rank-value">280 Wins</span></li>
+<li><span class="rank-pos">09</span><span class="rank-name">Kessalyn</span><span class="rank-value">264 Wins</span></li>
+<li><span class="rank-pos">10</span><span class="rank-name">Orrinvale</span><span class="rank-value">249 Wins</span></li>
+</ol>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Donate Section -->
+<section class="section section-donate" id="donate">
+<div class="container">
+<header class="section-header" data-animate="fade-up">
+<span class="section-tag">05</span>
+<div>
+<h2 class="section-title">Support the Server</h2>
+<p class="section-subtitle">Help us keep Loa Castle running strong with your contribution</p>
+</div>
+</header>
+<div class="donate-textwall" data-animate="fade-up">
+<div class="donate-text-head">
+<div class="donate-text-title">Donation Tiers</div>
+<div class="donate-text-hint">Pick a tier — PayPal checkout opens in a new tab.</div>
+</div>
+<div class="donate-text-list" role="list">
+  <div class="donate-text-row tier-bronze" role="listitem">
+    <div class="donate-text-left">
+      <div class="donate-text-tier"><span class="donate-tier-icon"></span>Bronze Supporter</div>
+      <div class="donate-text-meta">10,000 coins</div>
+    </div>
+    <div class="donate-text-right">
+      <div class="donate-text-price">€10</div>
+      <a class="btn btn-primary donate-link" href="https://www.paypal.com/ncp/payment/BYNCRYTVBERT2" target="_blank" rel="noopener">Checkout</a>
+    </div>
+  </div>
+
+  <div class="donate-text-row tier-silver" role="listitem">
+    <div class="donate-text-left">
+      <div class="donate-text-tier"><span class="donate-tier-icon"></span>Silver Supporter</div>
+      <div class="donate-text-meta">30,000 coins <span class="donate-text-bonus">+4,500 bonus</span></div>
+    </div>
+    <div class="donate-text-right">
+      <div class="donate-text-price">€30</div>
+      <a class="btn btn-primary donate-link" href="https://www.paypal.com/ncp/payment/9MPG2F7QZB2WQ" target="_blank" rel="noopener">Checkout</a>
+    </div>
+  </div>
+
+  <div class="donate-text-row is-popular tier-gold" role="listitem">
+    <div class="donate-text-left">
+      <div class="donate-text-tier">
+        <span class="donate-tier-icon"></span>Gold Supporter<span class="donate-text-pill">Best value</span>
+      </div>
+      <div class="donate-text-meta">50,000 coins <span class="donate-text-bonus">+12,500 bonus</span></div>
+    </div>
+    <div class="donate-text-right">
+      <div class="donate-text-price">€50</div>
+      <a class="btn btn-primary btn-glow donate-link" href="https://www.paypal.com/ncp/payment/KMKTB6YNXFCKY" target="_blank" rel="noopener">Checkout</a>
+    </div>
+  </div>
+
+  <div class="donate-text-row tier-platinum" role="listitem">
+    <div class="donate-text-left">
+      <div class="donate-text-tier"><span class="donate-tier-icon"></span>Platinum Supporter</div>
+      <div class="donate-text-meta">80,000 coins <span class="donate-text-bonus">+32,000 bonus</span></div>
+    </div>
+    <div class="donate-text-right">
+      <div class="donate-text-price">€80</div>
+      <a class="btn btn-primary donate-link" href="https://www.paypal.com/ncp/payment/AXAXE498N8826" target="_blank" rel="noopener">Checkout</a>
+    </div>
+  </div>
+
+  <div class="donate-text-row is-vip tier-diamond" role="listitem">
+    <div class="donate-text-left">
+      <div class="donate-text-tier">
+        <span class="donate-tier-icon"></span>Diamond Supporter<span class="donate-text-pill vip">VIP</span>
+      </div>
+      <div class="donate-text-meta">
+        100,000 coins <span class="donate-text-bonus">+50,000 bonus</span>
+        <span class="donate-text-vipdesc">Includes <b>{VIP}</b> tag</span>
+      </div>
+    </div>
+    <div class="donate-text-right">
+      <div class="donate-text-price">€100</div>
+      <a class="btn btn-primary btn-glow donate-link" href="https://www.paypal.com/ncp/payment/9PPU9VCL2HBPJ" target="_blank" rel="noopener">Checkout</a>
+    </div>
+  </div>
+</div>
+
+<div class="donate-text-note">
+  Donations are voluntary and support server maintenance. No gameplay advantages are sold.
+  <div class="donate-refund-note">
+    By donating, you agree that all payments are final and non-refundable.
+  </div>
+</div>
+</div>
+<div class="donate-notice">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<line x1="12" x2="12" y1="16" y2="12"></line>
+<line x1="12" x2="12.01" y1="8" y2="8"></line>
+</svg>
+<p>Clicking "Checkout" will open a secure PayPal payment page for your selected tier.</p>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+<div class="container footer-inner">
+<div class="footer-brand">
+<img alt="LC" class="footer-logo" src="images/favicon.png"/>
+<span class="footer-name">Loa Castle</span>
+</div>
+<p class="footer-copyright">© 2026 Loa Castle. All rights reserved.</p>
+<div class="footer-links">
+<a href="#classes">Classes</a>
+<a href="#rates">Rates</a>
+<a href="#timers">Events</a>
+<a href="#donate">Donate</a>
+</div>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
