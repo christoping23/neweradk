@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initScrollAnimations();
   initRegisterPopup();
   initRankInfoPopover();
+  initStatusTooltip();
   initContentProtection();
 });
 
@@ -212,9 +213,27 @@ function initClassSlider() {
 
 function initPlayerOnline() {
   const el = document.getElementById("playersOnline");
+  const namesList = document.getElementById("onlineNamesList");
   if (!el) return;
 
   const ONLINE_URL = "/api/online-count";
+
+  function renderNames(names) {
+    if (!namesList) return;
+
+    if (!Array.isArray(names) || !names.length) {
+      namesList.innerHTML = '<li class="status-tooltip-empty">No players online.</li>';
+      return;
+    }
+
+    namesList.innerHTML = names
+      .map((name) => {
+        const isVip = String(name).includes("{VIP}");
+        const cls = isVip ? ' class="is-vip"' : "";
+        return `<li${cls}>${escapeHtml(name)}</li>`;
+      })
+      .join("");
+  }
 
   async function refresh() {
     try {
@@ -225,8 +244,10 @@ function initPlayerOnline() {
       const count = Number(data.online ?? 0);
 
       el.textContent = Number.isFinite(count) ? String(count) : "0";
+      renderNames(data.names);
     } catch (err) {
       el.textContent = "--";
+      if (namesList) namesList.innerHTML = '<li class="status-tooltip-empty">Unable to load.</li>';
       console.error("Failed to load online count:", err);
     }
   }
@@ -500,6 +521,47 @@ function initRankInfoPopover() {
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closePopover();
+  });
+}
+
+/* ====== Status Tooltip (Online Count) ====== */
+
+function initStatusTooltip() {
+  const wrap = document.getElementById("serverStatus");
+  const tooltip = document.getElementById("statusTooltip");
+  if (!wrap || !tooltip) return;
+
+  function openTooltip() {
+    tooltip.classList.add("is-open");
+    wrap.setAttribute("aria-expanded", "true");
+  }
+
+  function closeTooltip() {
+    tooltip.classList.remove("is-open");
+    wrap.setAttribute("aria-expanded", "false");
+  }
+
+  function toggleTooltip(e) {
+    e.stopPropagation();
+    if (tooltip.classList.contains("is-open")) closeTooltip();
+    else openTooltip();
+  }
+
+  wrap.addEventListener("click", toggleTooltip);
+
+  wrap.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggleTooltip(e);
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!wrap.contains(e.target)) closeTooltip();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeTooltip();
   });
 }
 
