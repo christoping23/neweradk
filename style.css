@@ -453,6 +453,74 @@ svg { display: block; }
 }
 .ranking-icon { color: var(--blaze); font-size: 0.9rem; }
 .ranking-header h3 { font-family: var(--font-display); text-transform: uppercase; font-size: 1.05rem; letter-spacing: 0.02em; }
+
+.rank-info { position: relative; display: inline-flex; margin-left: 2px; }
+.rank-info-btn {
+  width: 18px; height: 18px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--faint);
+  background: transparent;
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.rank-info-btn:hover,
+.rank-info-btn:focus-visible,
+.rank-info-btn[aria-expanded="true"] {
+  border-color: var(--blaze);
+  color: var(--blaze);
+  background: var(--blaze-dim);
+  outline: none;
+}
+
+.rank-info-popover {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 20;
+  width: 260px;
+  max-width: calc(100vw - 40px);
+  background: var(--surface-2);
+  border: 1px solid var(--steel);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  padding: var(--sp-sm) var(--sp-xs);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease), visibility 0.18s;
+}
+.rank-info:hover .rank-info-popover,
+.rank-info-popover.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.rank-info-popover ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 4px;
+}
+.rank-info-popover li {
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px var(--sp-sm);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+.rank-info-popover li:hover { background: var(--blaze-dim); }
+.rank-info-popover .rank-info-num { color: var(--faint); width: 16px; flex-shrink: 0; }
+.rank-info-popover .rank-info-name { color: var(--dim); text-transform: uppercase; letter-spacing: 0.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+@media (max-width: 480px) {
+  .rank-info-popover { width: 230px; }
+}
 .ranking-list { list-style: none; }
 .ranking-list li {
   display: flex; align-items: center; gap: var(--sp-md);

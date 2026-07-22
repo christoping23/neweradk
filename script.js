@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initDonateLinks();
   initScrollAnimations();
   initRegisterPopup();
+  initRankInfoPopover();
   initContentProtection();
 });
 
@@ -450,6 +451,55 @@ function initRegisterPopup() {
       message: "Log in ingame to auto-create your account.",
       buttonText: "Yes, I understand"
     });
+  });
+}
+
+/* ====== Rank Info Popover ====== */
+
+function initRankInfoPopover() {
+  const wrap = document.getElementById("rankInfo");
+  const btn = document.getElementById("rankInfoBtn");
+  const popover = document.getElementById("rankInfoPopover");
+
+  if (!wrap || !btn || !popover) return;
+
+  popover.innerHTML = `
+    <ul>
+      ${Object.keys(gradeRanks)
+        .sort((a, b) => Number(a) - Number(b))
+        .map((num) => `
+          <li>
+            <span class="rank-info-num">${num}</span>
+            <span class="rank-info-name">${escapeHtml(gradeRanks[num])}</span>
+          </li>
+        `).join("")}
+    </ul>
+  `;
+
+  function openPopover() {
+    popover.classList.add("is-open");
+    btn.setAttribute("aria-expanded", "true");
+  }
+
+  function closePopover() {
+    popover.classList.remove("is-open");
+    btn.setAttribute("aria-expanded", "false");
+  }
+
+  function togglePopover(e) {
+    e.stopPropagation();
+    if (popover.classList.contains("is-open")) closePopover();
+    else openPopover();
+  }
+
+  btn.addEventListener("click", togglePopover);
+
+  document.addEventListener("click", (e) => {
+    if (!wrap.contains(e.target)) closePopover();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closePopover();
   });
 }
 
